@@ -30,7 +30,7 @@ Moje badania były prowadzone w języku Python w wersji 3.8.3. Do badań wykorzy
 Aby przewidzieć, czy klient byłby zainteresowany dodatkowym ubezpieczeniem pojazdu, dostałem bazę danych firmy TU z poprzedniego roku, zawierającą dane osób ubezpieczonych, którym zaproponowano dodatkowy pakiet ubezpieczenia zdrowotnego wraz z ubezpieczeniem OC.
 
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
 </p>
 <br />
 <div align="center">
