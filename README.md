@@ -7,25 +7,22 @@ W przypadku ubezpieczeń zdrowotnych taka umowa pozwala również na obniżenie 
 Większość rodzajów ubezpieczeń jest dobrowolna i zależy to jedynie od klienta, czy decyduje się na ubezpieczenie, czy może woli ponosić koszty bez płacenia firmie ubezpieczeniowej. W Polsce zgodnie z ustawą z dnia 22 maja 2003 r. o ubezpieczeniach obowiązkowych, Ubezpieczeniowym Funduszu Gwarancyjnym i Polskim Biurze Ubezpieczycieli Komunikacyjnych uregulowano obowiązkowy wykup ubezpieczeń. Zgodnie z przepisami do ubezpieczeń obowiązkowych zalicza się:
 
 <ol type="a">
-  <li>Coffee</li>
-  <li>Tea</li>
-  <li>Milk</li>
+  <li>ubezpieczenie odpowiedzialności cywilnej posiadaczy pojazdów mechanicznych (tzw. polisa komunikacyjna OC),</li>
+  <li>ubezpieczenie odpowiedzialności cywilnej rolników z tytułu posiadania gospodarstwa rolnego,</li>
+  <li>ubezpieczenie budynków wchodzących w skład gospodarstwa rolnego od ognia i innych zdarzeń losowych.</li>
 </ol>
 
-a)	ubezpieczenie odpowiedzialności cywilnej posiadaczy pojazdów mechanicznych (tzw. polisa komunikacyjna OC),
-b)	ubezpieczenie odpowiedzialności cywilnej rolników z tytułu posiadania gospodarstwa rolnego,
-c)	ubezpieczenie budynków wchodzących w skład gospodarstwa rolnego od ognia i innych zdarzeń losowych.
 Do wykupienia ubezpieczenia OC zobowiązani są właściciele wszystkich zarejestrowanych pojazdów – samochodów, motocykli, traktorów, a nawet quadów. Ubezpieczenie OC ma na celu ochronę poszkodowanych w przypadku kolizji lub wypadku drogowego. Gdy kierowca ubezpieczonego pojazdu spowoduje wypadek lub kolizję, to pieniądze dla poszkodowanych wypłacane są z polisy zakładu, w którym się ubezpieczył. Dotyczy to nie tylko pokrycia należności związanych z naprawą auta, ale obejmuje też zwrot kosztów leczenia ofiar wypadku.
  
-2. Cel
-W trosce o ubezpieczonych firmy starają się dopasowywać pakiety, aby zachęcić do skorzystania z ich oferty. Moim zleceniodawcą jest towarzystwo ubezpieczeniowe (określane tutaj jako firma TU), które zapewniło swoim klientom ubezpieczenie zdrowotne. Aktualnie zmieniają strategię sprzedażową i chcieliby przewidzieć, czy ubezpieczeni (klienci) z minionego roku będą również zainteresowani ubezpieczeniem komunikacyjnym OC oferowanym przez firmę.
-Zbudowanie modelu w oparciu o uczenie maszynowe pozwalającego przewidzieć, czy klient byłby zainteresowany ubezpieczeniem pojazdów, jest niezwykle pomocne dla firmy TU, bo dzięki temu jest w stanie odpowiednio zaplanować strategię komunikacji, aby dotrzeć do tych klientów, zoptymalizować swój model biznesowy i przychody. Jeśli klienci firmy TU będą coraz bardziej zainteresowani kupnem, zostaną opracowane nowe pakiety obejmujące ubezpieczenie zdrowotne wraz z ubezpieczeniem OC o obniżonej sumarycznej składce, co będzie bardziej atrakcyjne dla klientów.
-Głównym celem mojej pracy jest dokonanie odpowiedniej klasyfikacji ubezpieczonych firmy TU przy użyciu algorytmów uczenia maszynowego, po odpowiednim zanalizowaniu bazy klientów i wybraniu jednego z algorytmów. Wybór jednego z przetestowanych algorytmów uczenia maszynowego będzie podyktowany jakościową oceną możliwości klasyfikacyjnych oraz predykcyjnych. W ten sposób zaprezentowany i przetestowany model może zostać wykorzystany przez firmę TU do maksymalizacji zysków oraz do zaoszczędzenia czasu przy szukaniu klientów zainteresowanych nowym pakietem ubezpieczeniowym. 
+# 2. Cel
+W trosce o ubezpieczonych firmy starają się dopasowywać pakiety, aby zachęcić do skorzystania z ich oferty. Moim zleceniodawcą jest towarzystwo ubezpieczeniowe (określane tutaj jako firma TU), które zapewniło swoim klientom ubezpieczenie zdrowotne. Aktualnie zmieniają strategię sprzedażową i chcieliby przewidzieć, czy ubezpieczeni (klienci) z minionego roku będą również zainteresowani ubezpieczeniem komunikacyjnym OC oferowanym przez firmę.</br>
+Zbudowanie modelu w oparciu o uczenie maszynowe pozwalającego przewidzieć, czy klient byłby zainteresowany ubezpieczeniem pojazdów, jest niezwykle pomocne dla firmy TU, bo dzięki temu jest w stanie odpowiednio zaplanować strategię komunikacji, aby dotrzeć do tych klientów, zoptymalizować swój model biznesowy i przychody. Jeśli klienci firmy TU będą coraz bardziej zainteresowani kupnem, zostaną opracowane nowe pakiety obejmujące ubezpieczenie zdrowotne wraz z ubezpieczeniem OC o obniżonej sumarycznej składce, co będzie bardziej atrakcyjne dla klientów.</br>
+Głównym celem mojej pracy jest dokonanie odpowiedniej klasyfikacji ubezpieczonych firmy TU przy użyciu algorytmów uczenia maszynowego, po odpowiednim zanalizowaniu bazy klientów i wybraniu jednego z algorytmów. Wybór jednego z przetestowanych algorytmów uczenia maszynowego będzie podyktowany jakościową oceną możliwości klasyfikacyjnych oraz predykcyjnych. W ten sposób zaprezentowany i przetestowany model może zostać wykorzystany przez firmę TU do maksymalizacji zysków oraz do zaoszczędzenia czasu przy szukaniu klientów zainteresowanych nowym pakietem ubezpieczeniowym.</br>
 Moja analiza jest też istotna pod względem dopasowania nowej kampanii reklamowej firmy TU do typowego niezdecydowanego klienta, który mógłby zmienić zdanie i zdecydować się na nowy pakiet pod wpływem odpowiednio dopasowanej do niego reklamy.
  
-3. Wyniki badań
+# 3. Wyniki badań
 
-3.1 Wstępna analiza danych
+## 3.1 Wstępna analiza danych
 Moje badania były prowadzone w języku Python w wersji 3.8.3. Do badań wykorzystałem edytor Jupyter Notebook z pakietu Anaconda. Poza podstawowym pakietem bibliotek znajdujących się domyślnie w Anacondzie, wszystkie dodatkowe biblioteki potrzebne do badań zostały uprzednio zainstalowane. Potrzebne mi były biblioteki:
 -	shap
 -	xgboost
