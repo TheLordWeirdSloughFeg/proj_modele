@@ -28,7 +28,8 @@ Moje badania były prowadzone w języku Python w wersji 3.8.3. Do badań wykorzy
 -	xgboost
 -	imblearn
 Aby przewidzieć, czy klient byłby zainteresowany dodatkowym ubezpieczeniem pojazdu, dostałem bazę danych firmy TU z poprzedniego roku, zawierającą dane osób ubezpieczonych, którym zaproponowano dodatkowy pakiet ubezpieczenia zdrowotnego wraz z ubezpieczeniem OC.
- 
+
+https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/tabelka.jpg
 Rysunek 1. Przykładowe dane klientów firmy TU
 Baza zawiera podstawowe informacje o klientach, takie jak płeć, wiek, kod regionu, posiadanie prawa jazdy, jak i dotyczące pojazdów (wiek pojazdu, uszkodzenia), polisie (czy klient wcześniej wykupił OC firmy TU, jego roczna składka, kanał pozyskiwania oraz od ilu dni klient jest powiązany z firmą). Ostatnią kolumną jest zainteresowanie pakietem zdrowotnym wraz z ubezpieczeniem OC.
 Wstępnie znając dane sprawdziłem ich typ oraz czy są braki w analizowanej bazie, co jest ważne z perspektywy utworzenia ramki danych do badań modeli uczenia maszynowego.
