@@ -71,7 +71,7 @@ Tak przygotowane dane nie nadają się jako zbiór treningowy z uwagi na wartoś
 Po zastosowaniu powyższych kryteriów ramka danych wyglądała zgodnie z wycinkiem danych zaprezentowanych na Rysunku 9.
  
 Rysunek 9. Fragment danych gotowych do sprawdzania algorytmów uczenia maszynowego
-3.2 Badanie algorytmów klasyfikacyjnych
+## 3.2 Badanie algorytmów klasyfikacyjnych
 Po wstępnej analizie klientów zdecydowałem się na zbadanie pięciu popularnych algorytmów klasyfikacyjnych, charakteryzujących się dość dobrą skutecznością klasyfikacji. Są to:
 I.	XGBoost (Extreme Gradient Boosting)</br>
 II.	k-najbliższych sąsiadów (KNN)</br>
@@ -81,7 +81,7 @@ V.	stochastyczny spadek wzdłuż gradientu (SGD)</br>
 Zanim przystąpiłem do analizy powyższych algorytmów podzieliłem zbiór danych na treningowy i testowy.
  
 Rysunek 10. Podział zbioru danych na treningowy i testowy
-I.	XGBoost
+### I.	XGBoost
 Algorytm XGBoost napisany przez Tianqi Chena w 2014 roku podobny do lasów losowych, polega na sekwencyjnym uczeniu drzewna na podstawie błędów predykcyjnych (tzw. rezyduów). Jego zaletą jest duża szybkość, gdyż kolejne drzewa uczą się na rezyduach poprzedzających predykcji.
 Przed zastosowaniem biblioteki xgboost i wytrenowaniem modelu, przedstawiłem obliczone wartości Shapley’a za pomocą pakietu shap, które mogą sugerować jakie czynniki mają wpływ na decyzję klientów odnośnie rozszerzenia ubezpieczenia zdrowotnego o dodatkowe ubezpieczenie OC.
  
@@ -99,7 +99,7 @@ Po wytrenowaniu modelu zbadałem jego możliwości predykcyjne przy pomocy krzyw
 Rysunek 15. Krzywa ROC dla XGBoost
 Wartość AUC dla algorytmu XGBoost wyniosła ok. 0,85.
 
-II.	k-najbliższych sąsiadów (KNN)
+### II.	k-najbliższych sąsiadów (KNN)
 Algorytm k-najbliższych sąsiadów polega na tym, że wyznacza k sąsiednich wartości do których badany element zbioru ma najbliżej dla wybranej metryki (np. Euklidesowej), a następnie wyznacza wynik w oparciu o uśrednioną wartość odległości od k sąsiednich wartości. Ostatecznie, dany element zostaje zaklasyfikowany do grupy, do której ma najbliżej. Im większy zbiór danych, tym zazwyczaj potrzebny jest większy współczynnik k.
 Przed zastosowaniem algorytmu sprawdziłem, jakie k byłoby odpowiednie dla najlepszego dopasowania. W tym celu porównałem dokładność (accuracy) kolejnych modeli zmieniając ich wartość k od 1 do 35.
  
@@ -114,7 +114,7 @@ Rysunek 18. Wytrenowanie modelu k najbliższych sąsiadów dla parametru k = 10
 Rysunek 19. Krzywa ROC dla k-najbliższych sąsiadów
 Wartość AUC dla algorytmu k-najbliższych sąsiadów wyniosła ok. 0,80, czyli mniej niż w przypadku XGBoost.
 
-III.	Drzewo decyzyjne
+### III.	Drzewo decyzyjne
 Drzewo decyzyjne to przede wszystkim model procesu myślowego albo sztucznego mający na celu podejmowanie decyzji w zależności od podziału na jednorodne klasy. Na początku dany jest zbiór zawierający wszystkie analizowane obiekty. W trakcie analizy jest dzielony na określoną liczbę podzbiorów. Tworząc nowe gałęzie i posuwając się w dół drzewa każdy z podzbiorów podlega dalszemu podziałowi, tak aby na końcu analizy (w liściu) każdy obiekt stanowił oddzielną klasę. Takie drzewo odzwierciedla również, w jaki sposób na podstawie atrybutów algorytm drzewa decyzyjnego podejmuje decyzje klasyfikujące. Zaletą tego algorytmu jest jego czytelność dla człowieka, gdyż symuluje on ludzkie podejmowanie decyzji.
 Wytrenowałem model w oparciu o algorytm drzewa decyzyjnego.
  
@@ -124,7 +124,7 @@ Po wytrenowaniu modelu ponownie wykreśliłem krzywą ROC w celu porównania z r
 Rysunek 21. Krzywa ROC dla drzewa decyzyjnego
 Wartość AUC dla algorytmu drzewa decyzyjnego wyniosła ok. 0,82.
 
-IV.	Regresja logistyczna
+### IV.	Regresja logistyczna
 Regresja logistyczna jest podobna do modelu regresji liniowej, ale nadaje się dla modeli, w których zmienna zależna jest dychotomiczna. Model regresji logistycznej oparty jest na funkcji przekształcającej prawdopodobieństwo na logarytm szansy zwany inaczej logitem, co pozwala na obliczanie prawdopodobieństwa danego zdarzenia (tzw. prawdopodobieństwo sukcesu). W przypadku regresji logistycznej współczynniki mogą być używane do oszacowania ilorazów szans dla każdej zmiennej niezależnej w modelu.
 Wytrenowałem model stosując regresję logistyczną.
  
@@ -134,7 +134,7 @@ Po wytrenowaniu modelu wykreśliłem krzywą ROC, aby porównać go z resztą za
 Rysunek 23. Krzywa ROC dla regresji logistycznej
 Wartość AUC dla algorytmu regresji logistycznej wyniosła ok. 0,83.
 
-V.	Stochastyczny spadek wzdłuż gradientu
+### V.	Stochastyczny spadek wzdłuż gradientu
 Algorytm stochastycznego spadku wzdłuż gradientu jest algorytmem iteracyjnym, który rozpoczyna się od losowego punktu funkcji, następnie z kolejną iteracją przesuwa się stopniowo w dół zgodnie z gradientem, dopasowując funkcję do obserwacji. Algorytm wybiera element przechodząc zwykle po całym zbiorze danych w losowej kolejności. Zaletami tego modelu są szybkość z uwagi na oszczędność pamięci obliczeniowej oraz skalowalność.
 Wytrenowałem model stosując algorytm stochastycznego spadku wzdłuż gradientu.
  
@@ -145,16 +145,25 @@ Rysunek 25. Krzywa ROC dla stochastycznego spadku gradientu
 Wartość AUC dla algorytmu stochastycznego spadku gradientu wyniosła ok. 0,83.
  
 Poniżej zestawienie wyników dla wszystkich pięciu algorytmów.
-Algorytm	Pole pod krzywą ROC (AUC)
-XGBoost (Extreme Gradient Boosting)	0,8526257312343555
-k-najbliższych sąsiadów (KNN)	0,8020140147211012
-drzewo decyzyjne	0,8238167788731643
-regresja logistyczna	0,8294442690064487
-stochastyczny spadek wzdłuż gradientu (SGD)	0,8242933535429905
-Tabela 1. Zestawienie wyników pięciu przebadanych algorytmów.
+	
+<div align="center">
+  
+| Algorytm | Pole pod krzywą ROC (AUC) |
+| ----------- | ------------ |
+| XGBoost (Extreme Gradient Boosting) | 0,8526257312343555 |
+| k-najbliższych sąsiadów (KNN) |  0,8020140147211012 |
+| drzewo decyzyjne | 0,8238167788731643 |
+| regresja logistyczna | 0,8294442690064487 |
+| stochastyczny spadek wzdłuż gradientu (SGD) | 0,8242933535429905 |
+ 
+</div>
+<div align="center">
+<b><h3>Tabela 1. Zestawienie wyników pięciu przebadanych algorytmów.</h3></b>
+</div>
+
 Jak można zauważyć najlepiej sprawdził się algorytm XGBoost, którego współczynnik ROC wyniósł 0,85. Pozostałe algorytmy cechowały się podobną wartością współczynnika AUC w zakresie 0,82-0,83. Jedynie algorytm k-najbliższych sąsiadów mimo próby dopasowania współczynnika k miał najgorszy wynik, jeśli chodzi o wartość AUC.
 
-3.3 Badanie algorytmów klasyfikacyjnych po użyciu nadpróbkowania SMOTE
+## 3.3 Badanie algorytmów klasyfikacyjnych po użyciu nadpróbkowania SMOTE
 Mimo przewagi XGBoost nad innymi algorytmami przy klasyfikacji osób zainteresowanych dodatkowym ubezpieczeniem OC, postanowiłem ponownie przeanalizować dane. Po ponownym przyjrzeniu się ilości odpowiedzi osób zainteresowanych i niezainteresowanych dodatkowym pakietem, zauważyłem że, zdecydowana większość nie była nim zainteresowana (patrz: Rysunek 3). Przy tak sporej dysproporcji, stwierdziłem, że warto byłoby wyrównać stosunek osób zainteresowanych do liczby osób niezainteresowanych, przez dodanie próbek syntetycznych, gdyż więcej danych może zwiększyć skuteczność przewidywania badanych algorytmów. Do tego celu zastosowałem algorytm nadpróbkowania SMOTE.
 SMOTE to jeden ze sposobów zwiększenia liczby rzadkich przypadków. Algorytm SMOTE generuje nowe wystąpienia z istniejących przypadków mniejszości, które podano jako dane wejściowe. W praktyce powiela on losowo wybrane obserwacje danych z klasy, mającej przewagą liczebną.</br>
 W związku z tym zastosowałem algorytm SMOTE zwiększając liczbę osób zainteresowanych wykupieniem dodatkowego ubezpieczenia pojazdu.
@@ -165,25 +174,25 @@ Po wykonaniu nadpróbkowania sprawdziłem jeszcze raz jak kształtuje się odpow
 Rysunek 27. Wykres sumarycznej odpowiedzi po użyciu algorytmu SMOTE
 Jak widać na Rysunku 27 stosunek odpowiedzi klientów w obu grupach był jednakowy. Następnym krokiem było powtórzenie wytrenowania modeli na nowym zbiorze danych. Żaden z poprzednio użytych parametrów nie został zmieniony, aby można było zauważyć polepszenie wyników algorytmów.
  
-I.	XGBoost
+### I.	XGBoost
  
 Rysunek 28. Krzywa ROC dla XGBoost po użyciu algorytmu SMOTE
 Wartość AUC dla algorytmu XGBoost po zastosowaniu SMOTE wyniosła ok. 0,86.
 
-II.	k-najbliższych sąsiadów (KNN)
+### II.	k-najbliższych sąsiadów (KNN)
  
 Rysunek 29. Krzywa ROC dla k-najbliższych sąsiadów po użyciu algorytmu SMOTE
 Wartość AUC dla algorytmu KNN po zastosowaniu SMOTE wyniosła ok. 0,85.
-III.	Drzewo decyzyjne
+### III.	Drzewo decyzyjne
  
 Rysunek 30. Krzywa ROC dla drzewa decyzyjnego po użyciu algorytmu SMOTE
 Wartość AUC dla algorytmu drzewa decyzyjnego po zastosowaniu SMOTE wyniosła ok. 0,86.
 
-IV.	Regresja logistyczna
+### IV.	Regresja logistyczna
  
 Rysunek 31. Krzywa ROC dla regresji logistycznej po użyciu algorytmu SMOTE
 Wartość AUC dla algorytmu regresji logistycznej po zastosowaniu SMOTE wyniosła ok. 0,83.
-V.	Stochastyczny spadek wzdłuż gradientu
+### V.	Stochastyczny spadek wzdłuż gradientu
  
 Rysunek 32. Krzywa ROC dla stochastycznego spadku gradientu po użyciu algorytmu SMOTE
 Wartość AUC dla algorytmu SDG po zastosowaniu SMOTE wyniosła ok. 0,83.
@@ -195,7 +204,23 @@ k-najbliższych sąsiadów	0,8020140147211012	0,8449268599794624
 drzewo decyzyjne	0,8238167788731643	0,8654773411885064
 regresja logistyczna	0,8294442690064487	0,8336418975903985
 SGD	0,8242933535429905	0,8269947343971508
-Tabela 2. Zestawienie wyników pięciu przebadanych algorytmów na niezmienionych danych oraz po zastosowaniu SMOTE.
+
+
+<div align="center">
+  
+| Algorytm | Współczynnik AUC dla niezmienionych danych | Współczynnik AUC po zastosowaniu nadpróbkowania metodą SMOTE |
+| ----------- | ------------ | ------------ |
+| XGBoost	| 0,8526257312343555	| 0,8621444150609314 |
+| k-najbliższych sąsiadów	| 0,8020140147211012	| 0,8449268599794624 |
+| drzewo decyzyjne	| 0,8238167788731643	| 0,8654773411885064 |
+| regresja logistyczna	| 0,8294442690064487	| 0,8336418975903985 |
+| SGD	| 0,8242933535429905	| 0,8269947343971508 |
+
+</div>
+<div align="center">
+<b><h3>Tabela 2. Zestawienie wyników pięciu przebadanych algorytmów na niezmienionych danych oraz po zastosowaniu SMOTE.</h3></b>
+</div>
+
 W przypadku modeli po zastosowaniu algorytm SMOTE najlepsze wyniki osiągnął algorytm drzewa decyzyjnego zwiększając współczynnik AUC o ponad 0,4. Co ciekawe w przypadku XGBoost współczynnik AUC zwiększył się jedynie o około 0,1. Najmniejszą różnicę widać przy algorytmie SGD, praktycznie wynik AUC pozostał ten sam.
 # 4. Podsumowanie i wnioski
 W celu zanalizowania i stworzenia modelu predykcyjnego danych klientów firmy TU dokonałem porównania pięciu algorytmów klasyfikujących: XGBoost, k-najbliższych sąsiadów, drzewa decyzyjnego, regresji logistycznej oraz stochastycznego spadku wzdłuż gradientu przy nadpróbkowaniu algorytmem SMOTE oraz bez niego.
