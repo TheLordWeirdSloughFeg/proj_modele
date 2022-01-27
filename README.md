@@ -198,13 +198,6 @@ Rysunek 32. Krzywa ROC dla stochastycznego spadku gradientu po użyciu algorytmu
 Wartość AUC dla algorytmu SDG po zastosowaniu SMOTE wyniosła ok. 0,83.
 
 Na koniec zrobiłem zestawienie wyników dla wszystkich pięciu algorytmów dla standardowych danych oraz po zastosowaniu nadpróbkowania.
-Algorytm	Współczynnik AUC dla niezmienionych danych	Współczynnik AUC po zastosowaniu nadpróbkowania metodą SMOTE
-XGBoost	0,8526257312343555	0,8621444150609314
-k-najbliższych sąsiadów	0,8020140147211012	0,8449268599794624
-drzewo decyzyjne	0,8238167788731643	0,8654773411885064
-regresja logistyczna	0,8294442690064487	0,8336418975903985
-SGD	0,8242933535429905	0,8269947343971508
-
 
 <div align="center">
   
