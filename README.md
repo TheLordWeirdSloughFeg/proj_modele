@@ -39,38 +39,94 @@ Aby przewidzieć, czy klient byłby zainteresowany dodatkowym ubezpieczeniem poj
 
 Baza zawiera podstawowe informacje o klientach, takie jak płeć, wiek, kod regionu, posiadanie prawa jazdy, jak i dotyczące pojazdów (wiek pojazdu, uszkodzenia), polisie (czy klient wcześniej wykupił OC firmy TU, jego roczna składka, kanał pozyskiwania oraz od ilu dni klient jest powiązany z firmą). Ostatnią kolumną jest zainteresowanie pakietem zdrowotnym wraz z ubezpieczeniem OC.</br>
 Wstępnie znając dane sprawdziłem ich typ oraz czy są braki w analizowanej bazie, co jest ważne z perspektywy utworzenia ramki danych do badań modeli uczenia maszynowego.
- 
-Rysunek 2. Informacja o danych klientów firmy TU
+
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 2. Informacja o danych klientów firmy TU</h3></b>
+</div>
+
 Jak można zauważyć na Rysunku 2 nie istnieją braki danych w żadnej z kolumn, co można przypisać dokładności firmy TU oraz ich przywiązaniem do kompletności danych. Kilka kolumn zawiera wartości tekstowe, dlatego w dalszych etapach analizy zamieniłem je na wartości numeryczne.</br>
 Na początek sprawdziłem sumaryczne odpowiedzi klientów.
- 
-Rysunek 3. Wykres sumarycznej odpowiedzi
+
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 3. Wykres sumarycznej odpowiedzi</h3></b>
+</div>
+
 Większość klientów jest niezainteresowanych obecnym pakietem firmy TU. Należy zweryfikować jaki mógłby być potencjalny klient, aby przyszła kampania reklamowa kierowana do osób niezdecydowanych odniosła sukces.</br>
 Następnie sprawdziłem też jak kształtuje się odpowiedź klientów w zależności od podanych zmiennych, co pozwoli na wstępną analizę.
- 
-Rysunek 4. Wykresy zmiennych w zależności od odpowiedzi klientów
+
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 4. Wykresy zmiennych w zależności od odpowiedzi klientów</h3></b>
+</div>
+
 Według wykresów na Rysunku 4 im młodszy jest ubezpieczony, tym chętniej decyduje się na dodatkowy pakiet. Osoby, które miały niższą składkę roczną również częściej chciały dodatkowe ubezpieczenie OC. Klienci bez wykupionego OC także decydują się chętniej na pakiet firmy TU, więc ewentualna przyszła kampania reklamowa ma szansę zwiększyć tę liczbę. Oczywistym jest, że jedynie osoby posiadające prawo jazdy są zainteresowane takim pakietem. Zmienne Vintage oraz id nie niosą żadnej wartości i nie są skorelowane z odpowiedzią klientów.</br>
 Po wstępnej analizie starałem się ograniczyć dość duży zbiór danych, sprawdzając korelację między zmiennymi. Chciałem również potwierdzić brak skorelowania kolumn Vintage oraz id z odpowiedzią klientów.
- 
-Rysunek 5. Mapa korelacji Pearsona
+
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 5. Mapa korelacji Pearsona</h3></b>
+</div>
+
 Zgodnie z wartością współczynnika Pearsona skorelowane zmienne mają kolor od białego do granatowego (przedział 0:1), natomiast nieskorelowane dane mają kolor od białego do ciemnoczerwonego (przedział -1:0). Usunąłem nieskorelowane dane, które nie będą miały większego znaczenia dla dalszych badań. Te kolumny to: Region_Code, Annual_Premium, id oraz Vintage.</br>
 Aby sprawdzić do kogo może być skierowana potencjalna kampania firmy TU sprawdziłem jeszcze podział odpowiedzi w zależności od zmiennych: płci ubezpieczonego, wieku pojazdu oraz czy mieli już wykupione OC przed zdecydowaniem się na nowy pakiet.
- 
-Rysunek 6. Wykres odpowiedzi klientów z podziałem na płeć w zależności od wcześniej wykupionego OC
+
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 6. Wykres odpowiedzi klientów z podziałem na płeć w zależności od wcześniej wykupionego OC</h3></b>
+</div>
+
 Jeśli chodzi o stałych klientów, to decydowali się oni na nowy pakiet tak samo licznie, bez względu na płeć. W przypadku klientów bez wcześniej wykupionego OC, częściej na pakiet decydowali się mężczyźni.</br>
- 
-Rysunek 7. Wykres odpowiedzi klientów z podziałem na płeć w zależności od wieku pojazdu
+
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 7. Wykres odpowiedzi klientów z podziałem na płeć w zależności od wieku pojazdu</h3></b>
+</div>
+
 Jak widać na wykresie z Rysunku 7, osoby posiadające pojazdy starsze niż 2 lata nie były praktycznie zainteresowane pakietem. Z kolei więcej kobiet posiadających nowe auta było bardziej zainteresowanych ofertą. Największą grupę zainteresowanych pakietem stanowią mężczyźni mający samochody wyprodukowane 1-2 lata temu.
 Na koniec przygotowałem dane do badania algorytmami uczenia maszynowego.</br>
- 
-Rysunek 8. Fragment wstępnych danych po usunięciu nieskorelowanych kolumn
+
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 8. Fragment wstępnych danych po usunięciu nieskorelowanych kolumn</h3></b>
+</div>
+
 Tak przygotowane dane nie nadają się jako zbiór treningowy z uwagi na wartości tekstowe kolumn Gender, Vehicle_Age i Vehicle_Damage. Zamieniłem wartości typu string wymienionych kolumn na odpowiednio:
 - Kolumna Gender	Male:0, Female:1,
 - Kolumna Vehicle_Age	> 2 Years:2, 1-2 Year:1, < 1 Year:0,
 - Kolumna Vehicle_Damage	No:0, Yes:1.
 Po zastosowaniu powyższych kryteriów ramka danych wyglądała zgodnie z wycinkiem danych zaprezentowanych na Rysunku 9.
- 
-Rysunek 9. Fragment danych gotowych do sprawdzania algorytmów uczenia maszynowego
+
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 9. Fragment danych gotowych do sprawdzania algorytmów uczenia maszynowego</h3></b>
+</div>
+
 ## 3.2 Badanie algorytmów klasyfikacyjnych
 Po wstępnej analizie klientów zdecydowałem się na zbadanie pięciu popularnych algorytmów klasyfikacyjnych, charakteryzujących się dość dobrą skutecznością klasyfikacji. Są to:
 I.	XGBoost (Extreme Gradient Boosting)</br>
@@ -79,69 +135,173 @@ III.	drzewo decyzyjne</br>
 IV.	regresja logistyczna</br>
 V.	stochastyczny spadek wzdłuż gradientu (SGD)</br>
 Zanim przystąpiłem do analizy powyższych algorytmów podzieliłem zbiór danych na treningowy i testowy.
- 
-Rysunek 10. Podział zbioru danych na treningowy i testowy
+
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 10. Podział zbioru danych na treningowy i testowy</h3></b>
+</div>
+
 ### I.	XGBoost
 Algorytm XGBoost napisany przez Tianqi Chena w 2014 roku podobny do lasów losowych, polega na sekwencyjnym uczeniu drzewna na podstawie błędów predykcyjnych (tzw. rezyduów). Jego zaletą jest duża szybkość, gdyż kolejne drzewa uczą się na rezyduach poprzedzających predykcji.
 Przed zastosowaniem biblioteki xgboost i wytrenowaniem modelu, przedstawiłem obliczone wartości Shapley’a za pomocą pakietu shap, które mogą sugerować jakie czynniki mają wpływ na decyzję klientów odnośnie rozszerzenia ubezpieczenia zdrowotnego o dodatkowe ubezpieczenie OC.
- 
-Rysunek 11. Graf przedstawiający wpływ zmiennych na decyzję klientów. Im dłuższa strzałka, tym większy wpływ ma dana zmienna
- 
-Rysunek 12. Wykres względnego znaczenia poszczególnych zmiennych w algorytmie XGBoost
- 
-Rysunek 13. Wykres względnego znaczenia poszczególnych na podstawie średniej wartości współczynnik Shapley’a
+
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 11. Graf przedstawiający wpływ zmiennych na decyzję klientów. Im dłuższa strzałka, tym większy wpływ ma dana zmienna</h3></b>
+</div>
+
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 12. Wykres względnego znaczenia poszczególnych zmiennych w algorytmie XGBoost</h3></b>
+</div>
+
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 13. Wykres względnego znaczenia poszczególnych na podstawie średniej wartości współczynnik Shapley’a</h3></b>
+</div>
+
 Na podstawie Rysunków 11-13 można stwierdzić, że na decyzję klienta mają wpływ: czy pojazd jest już uszkodzony, klient był już ubezpieczony w firmie TU, co może świadczyć o zadowoleniu klienta z ceny pakietu oraz wiek klienta.
 Następnie trenuję model klasyfikatora XGBoost na zbiorze treningowym podzielonym zgodnie z Rysunkiem 10.
- 
-Rysunek 14. Parametry modelu klasyfikacyjnego XGBoost
+
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 14. Parametry modelu klasyfikacyjnego XGBoost</h3></b>
+</div>
+
 Po wytrenowaniu modelu zbadałem jego możliwości predykcyjne przy pomocy krzywej ROC. Krzywa ROC jest wykorzystywana często jako narzędzie porównawcze do oceny modeli. W krzywej ROC obliczane jest pole pod krzywą (AUC) i traktowane jest jako miara precyzji i czułości wybranego modelu. Wartość AUC przyjmuje wartości od 0 do 1. Im wyższa wartość tym lepszy model.
- 
-Rysunek 15. Krzywa ROC dla XGBoost
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 15. Krzywa ROC dla XGBoost</h3></b>
+</div>
+
 Wartość AUC dla algorytmu XGBoost wyniosła ok. 0,85.
 
 ### II.	k-najbliższych sąsiadów (KNN)
 Algorytm k-najbliższych sąsiadów polega na tym, że wyznacza k sąsiednich wartości do których badany element zbioru ma najbliżej dla wybranej metryki (np. Euklidesowej), a następnie wyznacza wynik w oparciu o uśrednioną wartość odległości od k sąsiednich wartości. Ostatecznie, dany element zostaje zaklasyfikowany do grupy, do której ma najbliżej. Im większy zbiór danych, tym zazwyczaj potrzebny jest większy współczynnik k.
 Przed zastosowaniem algorytmu sprawdziłem, jakie k byłoby odpowiednie dla najlepszego dopasowania. W tym celu porównałem dokładność (accuracy) kolejnych modeli zmieniając ich wartość k od 1 do 35.
- 
-Rysunek 16. Szukanie optymalnej wartości k przez porównanie dokładności modeli
- 
-Rysunek 17.Wykres kolejnych wyników modeli k najbliższych sąsiadów w zależności od parametru k
+
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 16. Szukanie optymalnej wartości k przez porównanie dokładności modeli</h3></b>
+</div>
+
+
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 17.Wykres kolejnych wyników modeli k najbliższych sąsiadów w zależności od parametru k</h3></b>
+</div>
+
 Biorąc pod uwagę wykres z Rysunku 17 stwierdziłem, że najbardziej optymalna wartość k wynosi 10. Dla mniejszych wartości k, accuracy rośnie najbardziej, natomiast dla wartości większych od 10 różnica w accuracy nie jest na tyle znacząca, aby wziąć pod uwagę którąś z wartości z przedziału 11-35.
 Następnie wytrenowałem model, po ustaleniu parametru k =10.
- 
-Rysunek 18. Wytrenowanie modelu k najbliższych sąsiadów dla parametru k = 10
- 
-Rysunek 19. Krzywa ROC dla k-najbliższych sąsiadów
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 18. Wytrenowanie modelu k najbliższych sąsiadów dla parametru k = 10</h3></b>
+</div>
+
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 19. Krzywa ROC dla k-najbliższych sąsiadów</h3></b>
+</div> 
+
 Wartość AUC dla algorytmu k-najbliższych sąsiadów wyniosła ok. 0,80, czyli mniej niż w przypadku XGBoost.
 
 ### III.	Drzewo decyzyjne
 Drzewo decyzyjne to przede wszystkim model procesu myślowego albo sztucznego mający na celu podejmowanie decyzji w zależności od podziału na jednorodne klasy. Na początku dany jest zbiór zawierający wszystkie analizowane obiekty. W trakcie analizy jest dzielony na określoną liczbę podzbiorów. Tworząc nowe gałęzie i posuwając się w dół drzewa każdy z podzbiorów podlega dalszemu podziałowi, tak aby na końcu analizy (w liściu) każdy obiekt stanowił oddzielną klasę. Takie drzewo odzwierciedla również, w jaki sposób na podstawie atrybutów algorytm drzewa decyzyjnego podejmuje decyzje klasyfikujące. Zaletą tego algorytmu jest jego czytelność dla człowieka, gdyż symuluje on ludzkie podejmowanie decyzji.
 Wytrenowałem model w oparciu o algorytm drzewa decyzyjnego.
- 
-Rysunek 20. Wytrenowanie modelu drzewa decyzyjnego
+
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 20. Wytrenowanie modelu drzewa decyzyjnego</h3></b>
+</div> 
+
 Po wytrenowaniu modelu ponownie wykreśliłem krzywą ROC w celu porównania z resztą zastosowanych algorytmów.
- 
-Rysunek 21. Krzywa ROC dla drzewa decyzyjnego
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 21. Krzywa ROC dla drzewa decyzyjnego</h3></b>
+</div> 
+
 Wartość AUC dla algorytmu drzewa decyzyjnego wyniosła ok. 0,82.
 
 ### IV.	Regresja logistyczna
 Regresja logistyczna jest podobna do modelu regresji liniowej, ale nadaje się dla modeli, w których zmienna zależna jest dychotomiczna. Model regresji logistycznej oparty jest na funkcji przekształcającej prawdopodobieństwo na logarytm szansy zwany inaczej logitem, co pozwala na obliczanie prawdopodobieństwa danego zdarzenia (tzw. prawdopodobieństwo sukcesu). W przypadku regresji logistycznej współczynniki mogą być używane do oszacowania ilorazów szans dla każdej zmiennej niezależnej w modelu.
 Wytrenowałem model stosując regresję logistyczną.
- 
-Rysunek 22. Wytrenowanie modelu regresji logistycznej
+
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 22. Wytrenowanie modelu regresji logistycznej</h3></b>
+</div> 
+
 Po wytrenowaniu modelu wykreśliłem krzywą ROC, aby porównać go z resztą zastosowanych algorytmów.
- 
-Rysunek 23. Krzywa ROC dla regresji logistycznej
+
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 23. Krzywa ROC dla regresji logistycznej</h3></b>
+</div> 
+
 Wartość AUC dla algorytmu regresji logistycznej wyniosła ok. 0,83.
 
 ### V.	Stochastyczny spadek wzdłuż gradientu
 Algorytm stochastycznego spadku wzdłuż gradientu jest algorytmem iteracyjnym, który rozpoczyna się od losowego punktu funkcji, następnie z kolejną iteracją przesuwa się stopniowo w dół zgodnie z gradientem, dopasowując funkcję do obserwacji. Algorytm wybiera element przechodząc zwykle po całym zbiorze danych w losowej kolejności. Zaletami tego modelu są szybkość z uwagi na oszczędność pamięci obliczeniowej oraz skalowalność.
 Wytrenowałem model stosując algorytm stochastycznego spadku wzdłuż gradientu.
- 
-Rysunek 24. Wytrenowanie modelu stochastycznego spadku wzdłuż gradientu
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 24. Wytrenowanie modelu stochastycznego spadku wzdłuż gradientu</h3></b>
+</div> 
+
 Po wytrenowaniu modelu ponownie wykreśliłem krzywą ROC dla porównania z resztą zastosowanych algorytmów.
- 
-Rysunek 25. Krzywa ROC dla stochastycznego spadku gradientu
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 25. Krzywa ROC dla stochastycznego spadku gradientu</h3></b>
+</div> 
+
 Wartość AUC dla algorytmu stochastycznego spadku gradientu wyniosła ok. 0,83.
  
 Poniżej zestawienie wyników dla wszystkich pięciu algorytmów.
@@ -167,35 +327,77 @@ Jak można zauważyć najlepiej sprawdził się algorytm XGBoost, którego wspó
 Mimo przewagi XGBoost nad innymi algorytmami przy klasyfikacji osób zainteresowanych dodatkowym ubezpieczeniem OC, postanowiłem ponownie przeanalizować dane. Po ponownym przyjrzeniu się ilości odpowiedzi osób zainteresowanych i niezainteresowanych dodatkowym pakietem, zauważyłem że, zdecydowana większość nie była nim zainteresowana (patrz: Rysunek 3). Przy tak sporej dysproporcji, stwierdziłem, że warto byłoby wyrównać stosunek osób zainteresowanych do liczby osób niezainteresowanych, przez dodanie próbek syntetycznych, gdyż więcej danych może zwiększyć skuteczność przewidywania badanych algorytmów. Do tego celu zastosowałem algorytm nadpróbkowania SMOTE.
 SMOTE to jeden ze sposobów zwiększenia liczby rzadkich przypadków. Algorytm SMOTE generuje nowe wystąpienia z istniejących przypadków mniejszości, które podano jako dane wejściowe. W praktyce powiela on losowo wybrane obserwacje danych z klasy, mającej przewagą liczebną.</br>
 W związku z tym zastosowałem algorytm SMOTE zwiększając liczbę osób zainteresowanych wykupieniem dodatkowego ubezpieczenia pojazdu.
- 
-Rysunek 26. Zastosowanie nadpróbkowania metodą SMOTE
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 26. Zastosowanie nadpróbkowania metodą SMOTE</h3></b>
+</div>  
+
 Po wykonaniu nadpróbkowania sprawdziłem jeszcze raz jak kształtuje się odpowiedź w nowym zbiorze danych.
- 
-Rysunek 27. Wykres sumarycznej odpowiedzi po użyciu algorytmu SMOTE
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 27. Wykres sumarycznej odpowiedzi po użyciu algorytmu SMOTE</h3></b>
+</div>
+
 Jak widać na Rysunku 27 stosunek odpowiedzi klientów w obu grupach był jednakowy. Następnym krokiem było powtórzenie wytrenowania modeli na nowym zbiorze danych. Żaden z poprzednio użytych parametrów nie został zmieniony, aby można było zauważyć polepszenie wyników algorytmów.
  
 ### I.	XGBoost
- 
-Rysunek 28. Krzywa ROC dla XGBoost po użyciu algorytmu SMOTE
+Po wykonaniu nadpróbkowania sprawdziłem jeszcze raz jak kształtuje się odpowiedź w nowym zbiorze danych.
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 28. Krzywa ROC dla XGBoost po użyciu algorytmu SMOTE</h3></b>
+</div> 
 Wartość AUC dla algorytmu XGBoost po zastosowaniu SMOTE wyniosła ok. 0,86.
 
 ### II.	k-najbliższych sąsiadów (KNN)
- 
-Rysunek 29. Krzywa ROC dla k-najbliższych sąsiadów po użyciu algorytmu SMOTE
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 29. Krzywa ROC dla k-najbliższych sąsiadów po użyciu algorytmu SMOTE</h3></b>
+</div>  
+
 Wartość AUC dla algorytmu KNN po zastosowaniu SMOTE wyniosła ok. 0,85.
 ### III.	Drzewo decyzyjne
- 
-Rysunek 30. Krzywa ROC dla drzewa decyzyjnego po użyciu algorytmu SMOTE
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 30. Krzywa ROC dla drzewa decyzyjnego po użyciu algorytmu SMOTE</h3></b>
+</div>  
+
 Wartość AUC dla algorytmu drzewa decyzyjnego po zastosowaniu SMOTE wyniosła ok. 0,86.
 
 ### IV.	Regresja logistyczna
- 
-Rysunek 31. Krzywa ROC dla regresji logistycznej po użyciu algorytmu SMOTE
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 31. Krzywa ROC dla regresji logistycznej po użyciu algorytmu SMOTE</h3></b>
+</div>   
+
 Wartość AUC dla algorytmu regresji logistycznej po zastosowaniu SMOTE wyniosła ok. 0,83.
 ### V.	Stochastyczny spadek wzdłuż gradientu
- 
-Rysunek 32. Krzywa ROC dla stochastycznego spadku gradientu po użyciu algorytmu SMOTE
-Wartość AUC dla algorytmu SDG po zastosowaniu SMOTE wyniosła ok. 0,83.
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 32. Krzywa ROC dla stochastycznego spadku gradientu po użyciu algorytmu SMOTE</h3></b>
+</div>   
+
+Wartość AUC dla algorytmu SDG po zastosowaniu SMOTE wyniosła ok. 0,83.</br>
 
 Na koniec zrobiłem zestawienie wyników dla wszystkich pięciu algorytmów dla standardowych danych oraz po zastosowaniu nadpróbkowania.
 
