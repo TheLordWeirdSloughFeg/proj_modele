@@ -29,49 +29,55 @@ Moje badania były prowadzone w języku Python w wersji 3.8.3. Do badań wykorzy
 -	imblearn
 Aby przewidzieć, czy klient byłby zainteresowany dodatkowym ubezpieczeniem pojazdu, dostałem bazę danych firmy TU z poprzedniego roku, zawierającą dane osób ubezpieczonych, którym zaproponowano dodatkowy pakiet ubezpieczenia zdrowotnego wraz z ubezpieczeniem OC.
 
-https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/tabelka.jpg
-Rysunek 1. Przykładowe dane klientów firmy TU
-Baza zawiera podstawowe informacje o klientach, takie jak płeć, wiek, kod regionu, posiadanie prawa jazdy, jak i dotyczące pojazdów (wiek pojazdu, uszkodzenia), polisie (czy klient wcześniej wykupił OC firmy TU, jego roczna składka, kanał pozyskiwania oraz od ilu dni klient jest powiązany z firmą). Ostatnią kolumną jest zainteresowanie pakietem zdrowotnym wraz z ubezpieczeniem OC.
+<p align="center">
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/tabelka.jpg" />
+</p>
+<br />
+<div align="center">
+<b><h3>Rysunek 1. Przykładowe dane klientów firmy TU</h3></b>
+</div>
+
+Baza zawiera podstawowe informacje o klientach, takie jak płeć, wiek, kod regionu, posiadanie prawa jazdy, jak i dotyczące pojazdów (wiek pojazdu, uszkodzenia), polisie (czy klient wcześniej wykupił OC firmy TU, jego roczna składka, kanał pozyskiwania oraz od ilu dni klient jest powiązany z firmą). Ostatnią kolumną jest zainteresowanie pakietem zdrowotnym wraz z ubezpieczeniem OC.</br>
 Wstępnie znając dane sprawdziłem ich typ oraz czy są braki w analizowanej bazie, co jest ważne z perspektywy utworzenia ramki danych do badań modeli uczenia maszynowego.
  
 Rysunek 2. Informacja o danych klientów firmy TU
-Jak można zauważyć na Rysunku 2 nie istnieją braki danych w żadnej z kolumn, co można przypisać dokładności firmy TU oraz ich przywiązaniem do kompletności danych. Kilka kolumn zawiera wartości tekstowe, dlatego w dalszych etapach analizy zamieniłem je na wartości numeryczne.
+Jak można zauważyć na Rysunku 2 nie istnieją braki danych w żadnej z kolumn, co można przypisać dokładności firmy TU oraz ich przywiązaniem do kompletności danych. Kilka kolumn zawiera wartości tekstowe, dlatego w dalszych etapach analizy zamieniłem je na wartości numeryczne.</br>
 Na początek sprawdziłem sumaryczne odpowiedzi klientów.
  
 Rysunek 3. Wykres sumarycznej odpowiedzi
-Większość klientów jest niezainteresowanych obecnym pakietem firmy TU. Należy zweryfikować jaki mógłby być potencjalny klient, aby przyszła kampania reklamowa kierowana do osób niezdecydowanych odniosła sukces.
+Większość klientów jest niezainteresowanych obecnym pakietem firmy TU. Należy zweryfikować jaki mógłby być potencjalny klient, aby przyszła kampania reklamowa kierowana do osób niezdecydowanych odniosła sukces.</br>
 Następnie sprawdziłem też jak kształtuje się odpowiedź klientów w zależności od podanych zmiennych, co pozwoli na wstępną analizę.
  
 Rysunek 4. Wykresy zmiennych w zależności od odpowiedzi klientów
-Według wykresów na Rysunku 4 im młodszy jest ubezpieczony, tym chętniej decyduje się na dodatkowy pakiet. Osoby, które miały niższą składkę roczną również częściej chciały dodatkowe ubezpieczenie OC. Klienci bez wykupionego OC także decydują się chętniej na pakiet firmy TU, więc ewentualna przyszła kampania reklamowa ma szansę zwiększyć tę liczbę. Oczywistym jest, że jedynie osoby posiadające prawo jazdy są zainteresowane takim pakietem. Zmienne Vintage oraz id nie niosą żadnej wartości i nie są skorelowane z odpowiedzią klientów.
+Według wykresów na Rysunku 4 im młodszy jest ubezpieczony, tym chętniej decyduje się na dodatkowy pakiet. Osoby, które miały niższą składkę roczną również częściej chciały dodatkowe ubezpieczenie OC. Klienci bez wykupionego OC także decydują się chętniej na pakiet firmy TU, więc ewentualna przyszła kampania reklamowa ma szansę zwiększyć tę liczbę. Oczywistym jest, że jedynie osoby posiadające prawo jazdy są zainteresowane takim pakietem. Zmienne Vintage oraz id nie niosą żadnej wartości i nie są skorelowane z odpowiedzią klientów.</br>
 Po wstępnej analizie starałem się ograniczyć dość duży zbiór danych, sprawdzając korelację między zmiennymi. Chciałem również potwierdzić brak skorelowania kolumn Vintage oraz id z odpowiedzią klientów.
  
 Rysunek 5. Mapa korelacji Pearsona
-Zgodnie z wartością współczynnika Pearsona skorelowane zmienne mają kolor od białego do granatowego (przedział 0:1), natomiast nieskorelowane dane mają kolor od białego do ciemnoczerwonego (przedział -1:0). Usunąłem nieskorelowane dane, które nie będą miały większego znaczenia dla dalszych badań. Te kolumny to: Region_Code, Annual_Premium, id oraz Vintage.
+Zgodnie z wartością współczynnika Pearsona skorelowane zmienne mają kolor od białego do granatowego (przedział 0:1), natomiast nieskorelowane dane mają kolor od białego do ciemnoczerwonego (przedział -1:0). Usunąłem nieskorelowane dane, które nie będą miały większego znaczenia dla dalszych badań. Te kolumny to: Region_Code, Annual_Premium, id oraz Vintage.</br>
 Aby sprawdzić do kogo może być skierowana potencjalna kampania firmy TU sprawdziłem jeszcze podział odpowiedzi w zależności od zmiennych: płci ubezpieczonego, wieku pojazdu oraz czy mieli już wykupione OC przed zdecydowaniem się na nowy pakiet.
  
 Rysunek 6. Wykres odpowiedzi klientów z podziałem na płeć w zależności od wcześniej wykupionego OC
-Jeśli chodzi o stałych klientów, to decydowali się oni na nowy pakiet tak samo licznie, bez względu na płeć. W przypadku klientów bez wcześniej wykupionego OC, częściej na pakiet decydowali się mężczyźni.
+Jeśli chodzi o stałych klientów, to decydowali się oni na nowy pakiet tak samo licznie, bez względu na płeć. W przypadku klientów bez wcześniej wykupionego OC, częściej na pakiet decydowali się mężczyźni.</br>
  
 Rysunek 7. Wykres odpowiedzi klientów z podziałem na płeć w zależności od wieku pojazdu
 Jak widać na wykresie z Rysunku 7, osoby posiadające pojazdy starsze niż 2 lata nie były praktycznie zainteresowane pakietem. Z kolei więcej kobiet posiadających nowe auta było bardziej zainteresowanych ofertą. Największą grupę zainteresowanych pakietem stanowią mężczyźni mający samochody wyprodukowane 1-2 lata temu.
-Na koniec przygotowałem dane do badania algorytmami uczenia maszynowego.
+Na koniec przygotowałem dane do badania algorytmami uczenia maszynowego.</br>
  
 Rysunek 8. Fragment wstępnych danych po usunięciu nieskorelowanych kolumn
 Tak przygotowane dane nie nadają się jako zbiór treningowy z uwagi na wartości tekstowe kolumn Gender, Vehicle_Age i Vehicle_Damage. Zamieniłem wartości typu string wymienionych kolumn na odpowiednio:
-Kolumna Gender	Male:0, Female:1,
-Kolumna Vehicle_Age	> 2 Years:2, 1-2 Year:1, < 1 Year:0,
-Kolumna Vehicle_Damage	No:0, Yes:1.
+- Kolumna Gender	Male:0, Female:1,
+- Kolumna Vehicle_Age	> 2 Years:2, 1-2 Year:1, < 1 Year:0,
+- Kolumna Vehicle_Damage	No:0, Yes:1.
 Po zastosowaniu powyższych kryteriów ramka danych wyglądała zgodnie z wycinkiem danych zaprezentowanych na Rysunku 9.
  
 Rysunek 9. Fragment danych gotowych do sprawdzania algorytmów uczenia maszynowego
 3.2 Badanie algorytmów klasyfikacyjnych
 Po wstępnej analizie klientów zdecydowałem się na zbadanie pięciu popularnych algorytmów klasyfikacyjnych, charakteryzujących się dość dobrą skutecznością klasyfikacji. Są to:
-I.	XGBoost (Extreme Gradient Boosting)
-II.	k-najbliższych sąsiadów (KNN)
-III.	drzewo decyzyjne
-IV.	regresja logistyczna
-V.	stochastyczny spadek wzdłuż gradientu (SGD)
+I.	XGBoost (Extreme Gradient Boosting)</br>
+II.	k-najbliższych sąsiadów (KNN)</br>
+III.	drzewo decyzyjne</br>
+IV.	regresja logistyczna</br>
+V.	stochastyczny spadek wzdłuż gradientu (SGD)</br>
 Zanim przystąpiłem do analizy powyższych algorytmów podzieliłem zbiór danych na treningowy i testowy.
  
 Rysunek 10. Podział zbioru danych na treningowy i testowy
@@ -150,7 +156,7 @@ Jak można zauważyć najlepiej sprawdził się algorytm XGBoost, którego wspó
 
 3.3 Badanie algorytmów klasyfikacyjnych po użyciu nadpróbkowania SMOTE
 Mimo przewagi XGBoost nad innymi algorytmami przy klasyfikacji osób zainteresowanych dodatkowym ubezpieczeniem OC, postanowiłem ponownie przeanalizować dane. Po ponownym przyjrzeniu się ilości odpowiedzi osób zainteresowanych i niezainteresowanych dodatkowym pakietem, zauważyłem że, zdecydowana większość nie była nim zainteresowana (patrz: Rysunek 3). Przy tak sporej dysproporcji, stwierdziłem, że warto byłoby wyrównać stosunek osób zainteresowanych do liczby osób niezainteresowanych, przez dodanie próbek syntetycznych, gdyż więcej danych może zwiększyć skuteczność przewidywania badanych algorytmów. Do tego celu zastosowałem algorytm nadpróbkowania SMOTE.
-SMOTE to jeden ze sposobów zwiększenia liczby rzadkich przypadków. Algorytm SMOTE generuje nowe wystąpienia z istniejących przypadków mniejszości, które podano jako dane wejściowe. W praktyce powiela on losowo wybrane obserwacje danych z klasy, mającej przewagą liczebną.
+SMOTE to jeden ze sposobów zwiększenia liczby rzadkich przypadków. Algorytm SMOTE generuje nowe wystąpienia z istniejących przypadków mniejszości, które podano jako dane wejściowe. W praktyce powiela on losowo wybrane obserwacje danych z klasy, mającej przewagą liczebną.</br>
 W związku z tym zastosowałem algorytm SMOTE zwiększając liczbę osób zainteresowanych wykupieniem dodatkowego ubezpieczenia pojazdu.
  
 Rysunek 26. Zastosowanie nadpróbkowania metodą SMOTE
@@ -191,8 +197,8 @@ regresja logistyczna	0,8294442690064487	0,8336418975903985
 SGD	0,8242933535429905	0,8269947343971508
 Tabela 2. Zestawienie wyników pięciu przebadanych algorytmów na niezmienionych danych oraz po zastosowaniu SMOTE.
 W przypadku modeli po zastosowaniu algorytm SMOTE najlepsze wyniki osiągnął algorytm drzewa decyzyjnego zwiększając współczynnik AUC o ponad 0,4. Co ciekawe w przypadku XGBoost współczynnik AUC zwiększył się jedynie o około 0,1. Najmniejszą różnicę widać przy algorytmie SGD, praktycznie wynik AUC pozostał ten sam.
-4. Podsumowanie i wnioski
+# 4. Podsumowanie i wnioski
 W celu zanalizowania i stworzenia modelu predykcyjnego danych klientów firmy TU dokonałem porównania pięciu algorytmów klasyfikujących: XGBoost, k-najbliższych sąsiadów, drzewa decyzyjnego, regresji logistycznej oraz stochastycznego spadku wzdłuż gradientu przy nadpróbkowaniu algorytmem SMOTE oraz bez niego.
-Baza dostarczona przez zleceniodawca nie miała braków w danych, jednak miała ona zbyt dużo zmiennych. Po wstępnej analizie stworzyłem ramkę danych, która posłużyła mi do trenowania wspomnianych pięciu modeli uczenia maszynowego.
-Biorąc pod uwagę współczynnik AUC, najlepsze wyniki osiągnął algorytm drzewa decyzyjnego z nadpróbkowaniem algorytmem SMOTE przy AUC około 0,86 oraz o krzywej ROC zaprezentowanej na Rysunku 30. Nadpróbkowanie algorytmem SMOTE jest wskazane dla danych o niewielkiej wymiarowości, dlatego tutaj sprawdziło się dobrze. Z uwagi na przejrzystość i prostotę tego modelu, algorytm drzewa decyzyjnego można przedstawić firmie, dlatego też moje badania będą bardziej klarowne dla mojego zleceniodawcy. Model w oparciu o drzewo decyzyjne z nadpróbkowaniem metodą SMOTE dobrze sprawdzi się w predykcji klientów zainteresowanych dodatkowym ubezpieczeniem OC w kolejnych latach.
+Baza dostarczona przez zleceniodawca nie miała braków w danych, jednak miała ona zbyt dużo zmiennych. Po wstępnej analizie stworzyłem ramkę danych, która posłużyła mi do trenowania wspomnianych pięciu modeli uczenia maszynowego.</br>
+Biorąc pod uwagę współczynnik AUC, najlepsze wyniki osiągnął algorytm drzewa decyzyjnego z nadpróbkowaniem algorytmem SMOTE przy AUC około 0,86 oraz o krzywej ROC zaprezentowanej na Rysunku 30. Nadpróbkowanie algorytmem SMOTE jest wskazane dla danych o niewielkiej wymiarowości, dlatego tutaj sprawdziło się dobrze. Z uwagi na przejrzystość i prostotę tego modelu, algorytm drzewa decyzyjnego można przedstawić firmie, dlatego też moje badania będą bardziej klarowne dla mojego zleceniodawcy. Model w oparciu o drzewo decyzyjne z nadpróbkowaniem metodą SMOTE dobrze sprawdzi się w predykcji klientów zainteresowanych dodatkowym ubezpieczeniem OC w kolejnych latach.</br>
 Analizując bezpośrednio dane, kampania reklamowa firmy TU powinna być skierowana do młodych klientów płci męskiej posiadających prawo jazdy i stosunkowo nowy pojazd (roczny i dwuletni). Firma TU powinna także zastanowić się nad obniżeniem ceny pakietu, np. oferując dwa ubezpieczenia: zdrowotne i OC z rabatem, by zachęcić niezdecydowanych. Moje badania dla firmy TU mogą być zatem przyczynkiem do rozwoju firmy i poszerzeniu ich oferty np. dla młodych kierowców.
