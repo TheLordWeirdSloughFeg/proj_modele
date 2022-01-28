@@ -1,5 +1,4 @@
-# proj_modele
- Porównanie modeli klasyfikacyjnych na podstawie danych z firmy ubezpieczeniowej
+# Porównanie modeli klasyfikacyjnych na podstawie danych z firmy ubezpieczeniowej
 # 1. Wstęp
 Ubezpieczenie to umowa zobowiązująca do wypłacenia świadczenia przy zaistnieniu zdarzeń zawartych w umowie zawieranej między ubezpieczonym, a ubezpieczycielem – firmą ubezpieczeniową. Zdarzenia występujące w życiu, zdrowiu lub mieniu ubezpieczonego implikują realizację umowy wypłacając odszkodowania lub świadczenia z funduszu utworzonego ze zgromadzonych składek wnoszonych przez ubezpieczonych zgodnie z umową.</br>
 Firmy ubezpieczeniowe oferują różnego rodzaju pakiety kierowane do szerokiego grona klientów indywidualnych jak i korporacyjnych. Klienci indywidualni mogą skorzystać m.in. z ubezpieczeń komunikacyjnych, majątkowych, osobowo-podróżnych, od następstw nieszczęśliwych wypadków oraz OC. W zależności od rodzaju umowy jaki obszar życia, zdrowia, bądź mienia klienta ma być objęty ubezpieczeniem, obliczana jest składka świadczenia. Składka to suma pieniędzy, którą klient musi regularnie płacić firmie ubezpieczeniowej za tę gwarancję.</br>
