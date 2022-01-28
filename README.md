@@ -310,7 +310,7 @@ Poniżej zestawienie wyników dla wszystkich pięciu algorytmów.
   
 | Algorytm | Pole pod krzywą ROC (AUC) |
 | ----------- | ------------ |
-| XGBoost (Extreme Gradient Boosting) | <b>0,8526257312343555 </b> |
+| XGBoost (Extreme Gradient Boosting) | <b><u>0,8526257312343555 </b></u> |
 | k-najbliższych sąsiadów (KNN) |  0,8020140147211012 |
 | drzewo decyzyjne | 0,8238167788731643 |
 | regresja logistyczna | 0,8294442690064487 |
@@ -405,9 +405,9 @@ Na koniec zrobiłem zestawienie wyników dla wszystkich pięciu algorytmów dla 
   
 | Algorytm | Współczynnik AUC dla niezmienionych danych | Współczynnik AUC po zastosowaniu nadpróbkowania metodą SMOTE |
 | ----------- | ------------ | ------------ |
-| XGBoost	| <b>0,8526257312343555</b>	| 0,8621444150609314 |
+| XGBoost	| <b><u>0,8526257312343555</b></u>	| 0,8621444150609314 |
 | k-najbliższych sąsiadów	| 0,8020140147211012	| 0,8449268599794624 |
-| drzewo decyzyjne	| 0,8238167788731643	| <b>0,8654773411885064</b> |
+| drzewo decyzyjne	| 0,8238167788731643	| <b><u>0,8654773411885064</b></u> |
 | regresja logistyczna	| 0,8294442690064487	| 0,8336418975903985 |
 | SGD	| 0,8242933535429905	| 0,8269947343971508 |
 
