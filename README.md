@@ -41,7 +41,7 @@ Baza zawiera podstawowe informacje o klientach, takie jak płeć, wiek, kod regi
 Wstępnie znając dane sprawdziłem ich typ oraz czy są braki w analizowanej bazie, co jest ważne z perspektywy utworzenia ramki danych do badań modeli uczenia maszynowego.
 
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/df_info.jpg" />
 </p>
 <br />
 <div align="center">
@@ -52,7 +52,7 @@ Jak można zauważyć na Rysunku 2 nie istnieją braki danych w żadnej z kolumn
 Na początek sprawdziłem sumaryczne odpowiedzi klientów.
 
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/odpowiedx.png" />
 </p>
 <br />
 <div align="center">
@@ -63,7 +63,7 @@ Większość klientów jest niezainteresowanych obecnym pakietem firmy TU. Nale�
 Następnie sprawdziłem też jak kształtuje się odpowiedź klientów w zależności od podanych zmiennych, co pozwoli na wstępną analizę.
 
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/EDA_wartosci.jpg" />
 </p>
 <br />
 <div align="center">
@@ -74,7 +74,7 @@ Według wykresów na Rysunku 4 im młodszy jest ubezpieczony, tym chętniej decy
 Po wstępnej analizie starałem się ograniczyć dość duży zbiór danych, sprawdzając korelację między zmiennymi. Chciałem również potwierdzić brak skorelowania kolumn Vintage oraz id z odpowiedzią klientów.
 
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/korelacja.png" />
 </p>
 <br />
 <div align="center">
@@ -85,7 +85,7 @@ Zgodnie z wartością współczynnika Pearsona skorelowane zmienne mają kolor o
 Aby sprawdzić do kogo może być skierowana potencjalna kampania firmy TU sprawdziłem jeszcze podział odpowiedzi w zależności od zmiennych: płci ubezpieczonego, wieku pojazdu oraz czy mieli już wykupione OC przed zdecydowaniem się na nowy pakiet.
 
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/plec_odp.png" />
 </p>
 <br />
 <div align="center">
@@ -95,7 +95,7 @@ Aby sprawdzić do kogo może być skierowana potencjalna kampania firmy TU spraw
 Jeśli chodzi o stałych klientów, to decydowali się oni na nowy pakiet tak samo licznie, bez względu na płeć. W przypadku klientów bez wcześniej wykupionego OC, częściej na pakiet decydowali się mężczyźni.</br>
 
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/plec_wiek_pojazdu_odp.png" />
 </p>
 <br />
 <div align="center">
@@ -106,7 +106,7 @@ Jak widać na wykresie z Rysunku 7, osoby posiadające pojazdy starsze niż 2 la
 Na koniec przygotowałem dane do badania algorytmami uczenia maszynowego.</br>
 
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/df_header.jpg" />
 </p>
 <br />
 <div align="center">
@@ -120,7 +120,7 @@ Tak przygotowane dane nie nadają się jako zbiór treningowy z uwagi na wartoś
 Po zastosowaniu powyższych kryteriów ramka danych wyglądała zgodnie z wycinkiem danych zaprezentowanych na Rysunku 9.
 
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/df_obrobione.jpg" />
 </p>
 <br />
 <div align="center">
@@ -137,7 +137,7 @@ V.	stochastyczny spadek wzdłuż gradientu (SGD)</br>
 Zanim przystąpiłem do analizy powyższych algorytmów podzieliłem zbiór danych na treningowy i testowy.
 
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/podzial_danych.jpg" />
 </p>
 <br />
 <div align="center">
@@ -149,7 +149,7 @@ Algorytm XGBoost napisany przez Tianqi Chena w 2014 roku podobny do lasów losow
 Przed zastosowaniem biblioteki xgboost i wytrenowaniem modelu, przedstawiłem obliczone wartości Shapley’a za pomocą pakietu shap, które mogą sugerować jakie czynniki mają wpływ na decyzję klientów odnośnie rozszerzenia ubezpieczenia zdrowotnego o dodatkowe ubezpieczenie OC.
 
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/shap_strzalka.jpg" />
 </p>
 <br />
 <div align="center">
@@ -157,7 +157,7 @@ Przed zastosowaniem biblioteki xgboost i wytrenowaniem modelu, przedstawiłem ob
 </div>
 
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/shap.png" />
 </p>
 <br />
 <div align="center">
@@ -165,7 +165,7 @@ Przed zastosowaniem biblioteki xgboost i wytrenowaniem modelu, przedstawiłem ob
 </div>
 
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/shap2.png" />
 </p>
 <br />
 <div align="center">
@@ -176,7 +176,7 @@ Na podstawie Rysunków 11-13 można stwierdzić, że na decyzję klienta mają w
 Następnie trenuję model klasyfikatora XGBoost na zbiorze treningowym podzielonym zgodnie z Rysunkiem 10.
 
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/xgboost_params.jpg" />
 </p>
 <br />
 <div align="center">
@@ -185,7 +185,7 @@ Następnie trenuję model klasyfikatora XGBoost na zbiorze treningowym podzielon
 
 Po wytrenowaniu modelu zbadałem jego możliwości predykcyjne przy pomocy krzywej ROC. Krzywa ROC jest wykorzystywana często jako narzędzie porównawcze do oceny modeli. W krzywej ROC obliczane jest pole pod krzywą (AUC) i traktowane jest jako miara precyzji i czułości wybranego modelu. Wartość AUC przyjmuje wartości od 0 do 1. Im wyższa wartość tym lepszy model.
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/ROC_XG.jpg" />
 </p>
 <br />
 <div align="center">
@@ -199,7 +199,7 @@ Algorytm k-najbliższych sąsiadów polega na tym, że wyznacza k sąsiednich wa
 Przed zastosowaniem algorytmu sprawdziłem, jakie k byłoby odpowiednie dla najlepszego dopasowania. W tym celu porównałem dokładność (accuracy) kolejnych modeli zmieniając ich wartość k od 1 do 35.
 
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/knn_params.jpg" />
 </p>
 <br />
 <div align="center">
@@ -208,7 +208,7 @@ Przed zastosowaniem algorytmu sprawdziłem, jakie k byłoby odpowiednie dla najl
 
 
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/knn obliczneie.jpg" />
 </p>
 <br />
 <div align="center">
@@ -218,7 +218,7 @@ Przed zastosowaniem algorytmu sprawdziłem, jakie k byłoby odpowiednie dla najl
 Biorąc pod uwagę wykres z Rysunku 17 stwierdziłem, że najbardziej optymalna wartość k wynosi 10. Dla mniejszych wartości k, accuracy rośnie najbardziej, natomiast dla wartości większych od 10 różnica w accuracy nie jest na tyle znacząca, aby wziąć pod uwagę którąś z wartości z przedziału 11-35.
 Następnie wytrenowałem model, po ustaleniu parametru k =10.
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/knn_train.jpg" />
 </p>
 <br />
 <div align="center">
@@ -226,7 +226,7 @@ Następnie wytrenowałem model, po ustaleniu parametru k =10.
 </div>
 
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/ROC_knn.jpg" />
 </p>
 <br />
 <div align="center">
@@ -240,7 +240,7 @@ Drzewo decyzyjne to przede wszystkim model procesu myślowego albo sztucznego ma
 Wytrenowałem model w oparciu o algorytm drzewa decyzyjnego.
 
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tree_params.jpg" />
 </p>
 <br />
 <div align="center">
@@ -249,7 +249,7 @@ Wytrenowałem model w oparciu o algorytm drzewa decyzyjnego.
 
 Po wytrenowaniu modelu ponownie wykreśliłem krzywą ROC w celu porównania z resztą zastosowanych algorytmów.
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/ROC_tree.jpg" />
 </p>
 <br />
 <div align="center">
@@ -263,7 +263,7 @@ Regresja logistyczna jest podobna do modelu regresji liniowej, ale nadaje się d
 Wytrenowałem model stosując regresję logistyczną.
 
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/reg_log_params.jpg" />
 </p>
 <br />
 <div align="center">
@@ -273,7 +273,7 @@ Wytrenowałem model stosując regresję logistyczną.
 Po wytrenowaniu modelu wykreśliłem krzywą ROC, aby porównać go z resztą zastosowanych algorytmów.
 
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/ROC_reg_log.jpg" />
 </p>
 <br />
 <div align="center">
@@ -286,7 +286,7 @@ Wartość AUC dla algorytmu regresji logistycznej wyniosła ok. 0,83.
 Algorytm stochastycznego spadku wzdłuż gradientu jest algorytmem iteracyjnym, który rozpoczyna się od losowego punktu funkcji, następnie z kolejną iteracją przesuwa się stopniowo w dół zgodnie z gradientem, dopasowując funkcję do obserwacji. Algorytm wybiera element przechodząc zwykle po całym zbiorze danych w losowej kolejności. Zaletami tego modelu są szybkość z uwagi na oszczędność pamięci obliczeniowej oraz skalowalność.
 Wytrenowałem model stosując algorytm stochastycznego spadku wzdłuż gradientu.
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/SGD_params.jpg" />
 </p>
 <br />
 <div align="center">
@@ -295,7 +295,7 @@ Wytrenowałem model stosując algorytm stochastycznego spadku wzdłuż gradientu
 
 Po wytrenowaniu modelu ponownie wykreśliłem krzywą ROC dla porównania z resztą zastosowanych algorytmów.
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/ROC_SGD.jpg" />
 </p>
 <br />
 <div align="center">
@@ -328,7 +328,7 @@ Mimo przewagi XGBoost nad innymi algorytmami przy klasyfikacji osób zainteresow
 SMOTE to jeden ze sposobów zwiększenia liczby rzadkich przypadków. Algorytm SMOTE generuje nowe wystąpienia z istniejących przypadków mniejszości, które podano jako dane wejściowe. W praktyce powiela on losowo wybrane obserwacje danych z klasy, mającej przewagą liczebną.</br>
 W związku z tym zastosowałem algorytm SMOTE zwiększając liczbę osób zainteresowanych wykupieniem dodatkowego ubezpieczenia pojazdu.
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/SMOTE.jpg" />
 </p>
 <br />
 <div align="center">
@@ -337,7 +337,7 @@ W związku z tym zastosowałem algorytm SMOTE zwiększając liczbę osób zainte
 
 Po wykonaniu nadpróbkowania sprawdziłem jeszcze raz jak kształtuje się odpowiedź w nowym zbiorze danych.
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/odpowiedz SMOTE.jpg" />
 </p>
 <br />
 <div align="center">
@@ -349,7 +349,7 @@ Jak widać na Rysunku 27 stosunek odpowiedzi klientów w obu grupach był jednak
 ### I.	XGBoost
 Po wykonaniu nadpróbkowania sprawdziłem jeszcze raz jak kształtuje się odpowiedź w nowym zbiorze danych.
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/ROC_XG_S.jpg" />
 </p>
 <br />
 <div align="center">
@@ -359,7 +359,7 @@ Wartość AUC dla algorytmu XGBoost po zastosowaniu SMOTE wyniosła ok. 0,86.
 
 ### II.	k-najbliższych sąsiadów (KNN)
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/ROC_knn_S.jpg" />
 </p>
 <br />
 <div align="center">
@@ -369,7 +369,7 @@ Wartość AUC dla algorytmu XGBoost po zastosowaniu SMOTE wyniosła ok. 0,86.
 Wartość AUC dla algorytmu KNN po zastosowaniu SMOTE wyniosła ok. 0,85.
 ### III.	Drzewo decyzyjne
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/ROC_tree_S.jpg" />
 </p>
 <br />
 <div align="center">
@@ -380,7 +380,7 @@ Wartość AUC dla algorytmu drzewa decyzyjnego po zastosowaniu SMOTE wyniosła o
 
 ### IV.	Regresja logistyczna
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/ROC_reg_log_S.jpg" />
 </p>
 <br />
 <div align="center">
@@ -390,7 +390,7 @@ Wartość AUC dla algorytmu drzewa decyzyjnego po zastosowaniu SMOTE wyniosła o
 Wartość AUC dla algorytmu regresji logistycznej po zastosowaniu SMOTE wyniosła ok. 0,83.
 ### V.	Stochastyczny spadek wzdłuż gradientu
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/tabelka.jpg" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/ROC_SGD_S.jpg" />
 </p>
 <br />
 <div align="center">
