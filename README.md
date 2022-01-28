@@ -157,7 +157,7 @@ Przed zastosowaniem biblioteki xgboost i wytrenowaniem modelu, przedstawiłem ob
 </div>
 
 <p align="center">
-  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/shap.png" />
+  <img src="https://github.com/TheLordWeirdSloughFeg/proj_modele/blob/main/obrazki/shap.jpg" />
 </p>
 <br />
 <div align="center">
