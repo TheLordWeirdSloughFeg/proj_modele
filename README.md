@@ -310,7 +310,7 @@ Poniżej zestawienie wyników dla wszystkich pięciu algorytmów.
   
 | Algorytm | Pole pod krzywą ROC (AUC) |
 | ----------- | ------------ |
-| XGBoost (Extreme Gradient Boosting) | <b><u>0,8526257312343555 </u></b> |
+| XGBoost (Extreme Gradient Boosting) | <p><u>0,8526257312343555 </u></p> |
 | k-najbliższych sąsiadów (KNN) |  0,8020140147211012 |
 | drzewo decyzyjne | 0,8238167788731643 |
 | regresja logistyczna | 0,8294442690064487 |
